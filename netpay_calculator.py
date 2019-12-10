@@ -4,19 +4,21 @@ H1 = 0
 OT1 = 0
 print("\n\n")
 for x in [1, 2]:
-    Hours = float(input("Enter the number of hours worked in week" + str(x) + ":  "))
-    if Hours > 40:
-        OverTime = Hours - 40
-        Hours = Hours - OverTime
-    else:
-        OverTime = 0
-    H1 += Hours
-    OT1 += OverTime
+	Days = int(input("\nEnter the number of days worked in week" + str(x) + ":  "))
+	for day in range(Days):
+		Hours = int(input("\tEnter the number of hours worked in day" + str(day+1) + ":  "))
+		if Hours > 8:
+			OverTime = Hours - 8
+			Hours = Hours - OverTime
+		else:
+			OverTime = 0
+		H1 += Hours
+		OT1 += OverTime
 Hours = H1
 OverTime = OT1
 # print(str(Hours), str(OverTime))
 TotalHours = Hours + OverTime
-PayRate = float(input("Enter your pay rate per hour:  "))
+PayRate = float(input("\nEnter your pay rate per hour:  "))
 OverTimePayRate = PayRate * 1.5
 RegularPay = Hours * PayRate
 OverTimePay = OverTime * OverTimePayRate
