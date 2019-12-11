@@ -65,6 +65,7 @@ RegularPay = Hours * PayRate
 RegShiftDiff = RegularPay * Multiplier
 OverTimePay = OverTime * OverTimePayRate
 OTShiftDiff = OverTimePay * Multiplier
+ShiftDiff = RegShiftDiff + OTShiftDiff
 GrossPay = RegularPay + RegShiftDiff + OverTimePay + OTShiftDiff
 
 ####
@@ -83,4 +84,4 @@ NetPay = round(GrossPay - FedTax - StateTax - FicaTax - SUI_SDI, 2)
 ####
 # Displays the final results of the calculations
 ####
-print("\n\nTotal Hours for this two week period:\t" + str(TotalHours) + "\n\tRegular Hours:\t\t\t" + str(Hours) + "\n\tOvertime Hours:\t\t\t" + str(OverTime) + "\n\nGross Pay:\t\t\t\t" + str(GrossPay) + "\n\tRegular Pay:\t\t\t" + str(RegularPay) + "\n\tOvertime Pay:\t\t\t" + str(OverTimePay) + "\n\nFederal Income Tax:\t\t\t" + str(FedTax) + "\nState Income Tax:\t\t\t" + str(StateTax) + "\nFICA Tax:\t\t\t\t" + str(FicaTax) + "\nUnemployment Insurance:\t\t\t" + str(SUI_SDI)  + "\n\nNet Pay:\t\t\t\t" + str(NetPay) + "\n\n")
+print("\n\nTotal Hours for this two week period:\t" + str(TotalHours) + "\n\tRegular Hours:\t\t\t" + str(Hours) + "\n\tOvertime Hours:\t\t\t" + str(OverTime) + "\n\nGross Pay:\t\t\t\t" + str(GrossPay) + "\n\tRegular Pay:\t\t\t" + str(RegularPay) + "\n\tOvertime Pay:\t\t\t" + str(OverTimePay) + "\n\tShift Differential:\t\t" + str(ShiftDiff) + "\n\nFederal Income Tax:\t\t\t" + str(FedTax) + "\nState Income Tax:\t\t\t" + str(StateTax) + "\nFICA Tax:\t\t\t\t" + str(FicaTax) + "\nUnemployment Insurance:\t\t\t" + str(SUI_SDI)  + "\n\nNet Pay:\t\t\t\t" + str(NetPay) + "\n\n")
