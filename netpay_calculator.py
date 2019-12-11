@@ -43,13 +43,33 @@ TotalHours = Hours + OverTime
 ####
 PayRate = float(input("\nEnter your pay rate per hour:  "))
 OverTimePayRate = PayRate * 1.5
+YN = input("\nIs shift differential authorized for this position (Y/N)?  ")
+if YN == "Y" or YN == "y":
+	PERCENT = float(input("\n\tEnter the authorized shift differential percentage (5, 10, 15):  "))
+	if PERCENT == 5:
+		Multiplier = .05
+	elif PERCENT == 10:
+		Multiplier = .10
+	elif PERCENT == 15:
+		Multiplier = .15
+	else:
+		print("\n\n\tAn invalid percentage was entered; exiting!")
+		exit(1)
+else:
+	Multiplier = 0
 
 ####
-# Calculates Base Pay, Gross Pay, required taxes, and Net Pay
+# Calculates Gross Pay
 ####
 RegularPay = Hours * PayRate
+RegShiftDiff = RegularPay * Multiplier
 OverTimePay = OverTime * OverTimePayRate
-GrossPay = RegularPay + OverTimePay
+OTShiftDiff = OverTimePay * Multiplier
+GrossPay = RegularPay + RegShiftDiff + OverTimePay + OTShiftDiff
+
+####
+# Calculates statutory taxes and Net Pay
+####
 FedTaxPercent = .24
 StateTaxPercent = .093
 FicaTaxPercent = .0765
